@@ -57,7 +57,7 @@ export function FuturisticFooter() {
                 <a
                   key={link}
                   href="#"
-                  className="block text-gray-400 hover:text-orange-400 transition-colors text-sm group flex items-center gap-2"
+                  className="flex text-gray-400 hover:text-orange-400 transition-colors text-sm group items-center gap-2"
                 >
                   <div className="w-1 h-1 bg-orange-500/50 group-hover:bg-orange-500 transition-colors" />
                   <span className="mono-numeric">{link}</span>
@@ -82,7 +82,7 @@ export function FuturisticFooter() {
                 <a
                   key={link}
                   href="#"
-                  className="block text-gray-400 hover:text-orange-400 transition-colors text-sm group flex items-center gap-2"
+                  className="flex text-gray-400 hover:text-orange-400 transition-colors text-sm group items-center gap-2"
                 >
                   <div className="w-1 h-1 bg-orange-500/50 group-hover:bg-orange-500 transition-colors" />
                   <span className="mono-numeric">{link}</span>

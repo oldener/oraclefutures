@@ -11,8 +11,8 @@ export function FuturisticHeader({ currentPage, onNavigate }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { id: "home", label: "HUB", icon: Activity },
-    { id: "about", label: "INTEL", icon: Brain },
+    { id: "home", label: "HOME", icon: Activity },
+    { id: "about", label: "ABOUT", icon: Brain },
     { id: "signals", label: "SIGNALS", icon: Zap },
   ];
 
