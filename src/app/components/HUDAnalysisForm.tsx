@@ -3,10 +3,12 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import { GlassPanel } from "./GlassPanel";
 import { Input } from "./ui/input";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export function HUDAnalysisForm() {
   const [coin, setCoin] = useState("");
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const { t } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,12 +36,12 @@ export function HUDAnalysisForm() {
         </div>
         <div>
           <h3 className="text-white uppercase tracking-wider glow-cyan">
-            AI Analysis Request
+            {t.analysisForm.title}
           </h3>
           <div className="flex items-center gap-2 mt-1">
             <div className="h-px w-6 bg-gradient-to-r from-cyan-500 to-transparent" />
             <p className="text-cyan-400 text-xs uppercase tracking-widest mono-numeric">
-              Instant Market Intel
+              {t.analysisForm.subtitle}
             </p>
           </div>
         </div>
@@ -53,7 +55,7 @@ export function HUDAnalysisForm() {
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-cyan-500 z-10" />
             <Input
               type="text"
-              placeholder="Enter coin symbol (e.g., BTC, ETH, SOL)"
+              placeholder={t.analysisForm.placeholder}
               value={coin}
               onChange={(e) => setCoin(e.target.value.toUpperCase())}
               className="
@@ -98,19 +100,19 @@ export function HUDAnalysisForm() {
           
           {/* Button content */}
           <div className="relative flex items-center justify-center gap-2 mono-numeric">
-            {isAnalyzing ? (
+                {isAnalyzing ? (
               <>
                 <motion.div
                   className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                 />
-                <span>Analyzing...</span>
+                <span>{t.analysisForm.analyzing}</span>
               </>
             ) : (
               <>
                 <Zap className="w-4 h-4" />
-                <span>Initiate Analysis</span>
+                <span>{t.analysisForm.button}</span>
               </>
             )}
           </div>
@@ -119,9 +121,9 @@ export function HUDAnalysisForm() {
 
       {/* Quick Select */}
       <div className="mt-6 pt-6 border-t border-cyan-500/20">
-        <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-3">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
-          <span className="text-gray-500 text-xs uppercase tracking-widest">Quick Access</span>
+          <span className="text-gray-500 text-xs uppercase tracking-widest">{t.analysisForm.quickAccess}</span>
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
         </div>
         
@@ -166,7 +168,7 @@ export function HUDAnalysisForm() {
         transition={{ delay: 0.5 }}
       >
         <div className="w-1 h-1 bg-green-500 rounded-full animate-pulse" />
-        <span className="mono-numeric uppercase tracking-wider">AI System Ready</span>
+        <span className="mono-numeric uppercase tracking-wider">{t.analysisForm.systemReady}</span>
       </motion.div>
     </GlassPanel>
   );

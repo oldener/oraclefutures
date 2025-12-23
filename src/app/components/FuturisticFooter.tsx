@@ -1,8 +1,10 @@
 import { Brain, Shield, Terminal } from "lucide-react";
 import { motion } from "motion/react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export function FuturisticFooter() {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   return (
     <footer className="relative mt-auto border-t border-orange-500/20 overflow-hidden">
@@ -37,7 +39,7 @@ export function FuturisticFooter() {
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Next-generation AI-powered crypto futures trading intelligence platform.
+              {t.footer.description}
             </p>
           </motion.div>
 
@@ -50,14 +52,19 @@ export function FuturisticFooter() {
           >
             <h4 className="text-orange-500 uppercase tracking-wider text-sm mb-4 flex items-center gap-2">
               <Terminal className="w-4 h-4" />
-              System Access
+              {t.footer.systemAccess}
             </h4>
             <div className="space-y-2">
-              {["Documentation", "API Status", "Community", "Support"].map((link) => (
+              {[
+                t.footer.links.documentation,
+                t.footer.links.apiStatus,
+                t.footer.links.community,
+                t.footer.links.support
+              ].map((link) => (
                 <a
                   key={link}
                   href="#"
-                  className="flex text-gray-400 hover:text-orange-400 transition-colors text-sm group items-center gap-2"
+                  className="block text-gray-400 hover:text-orange-400 transition-colors text-sm group flex items-center gap-2"
                 >
                   <div className="w-1 h-1 bg-orange-500/50 group-hover:bg-orange-500 transition-colors" />
                   <span className="mono-numeric">{link}</span>
@@ -75,14 +82,19 @@ export function FuturisticFooter() {
           >
             <h4 className="text-orange-500 uppercase tracking-wider text-sm mb-4 flex items-center gap-2">
               <Shield className="w-4 h-4" />
-              Legal
+              {t.footer.legal}
             </h4>
             <div className="space-y-2">
-              {["Terms of Service", "Privacy Policy", "Risk Disclosure", "Compliance"].map((link) => (
+              {[
+                t.footer.links.terms,
+                t.footer.links.privacy,
+                t.footer.links.risk,
+                t.footer.links.compliance
+              ].map((link) => (
                 <a
                   key={link}
                   href="#"
-                  className="flex text-gray-400 hover:text-orange-400 transition-colors text-sm group items-center gap-2"
+                  className="block text-gray-400 hover:text-orange-400 transition-colors text-sm group flex items-center gap-2"
                 >
                   <div className="w-1 h-1 bg-orange-500/50 group-hover:bg-orange-500 transition-colors" />
                   <span className="mono-numeric">{link}</span>
@@ -103,9 +115,7 @@ export function FuturisticFooter() {
           <div className="flex gap-3">
             <Shield className="w-4 h-4 text-yellow-500 shrink-0 mt-0.5" />
             <p className="text-yellow-400/90 text-xs leading-relaxed mono-numeric">
-              <span className="text-yellow-500 uppercase tracking-wider">Warning:</span> Cryptocurrency trading involves substantial risk. 
-              This platform provides AI-generated analysis for educational purposes only. Not financial advice. 
-              Trade at your own risk.
+              <span className="text-yellow-500 uppercase tracking-wider">{t.footer.warning.title}</span> {t.footer.warning.text}
             </p>
           </div>
         </motion.div>
@@ -119,13 +129,13 @@ export function FuturisticFooter() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <span className="mono-numeric">© {currentYear} Oracle Futures</span>
+            <span className="mono-numeric">© {currentYear} {t.footer.copyright}</span>
             <div className="w-px h-3 bg-gray-700" />
-            <span className="mono-numeric">Build v2.1.4</span>
+            <span className="mono-numeric">{t.footer.build} v2.1.4</span>
             <div className="w-px h-3 bg-gray-700" />
             <div className="flex items-center gap-1.5">
               <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-green-500 mono-numeric">All Systems Operational</span>
+              <span className="text-green-500 mono-numeric">{t.footer.status}</span>
             </div>
           </motion.div>
 

@@ -1,8 +1,11 @@
 import { Brain, Target, Shield, Users, Code, Zap, ChartBar, Activity } from "lucide-react";
 import { motion } from "motion/react";
 import { GlassPanel } from "./GlassPanel";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export function FuturisticAboutPage() {
+  const { t } = useLanguage();
+
   return (
     <div className="space-y-16 pb-20">
       {/* Hero */}
@@ -21,21 +24,20 @@ export function FuturisticAboutPage() {
           </div>
           
           <h1 className="text-4xl md:text-5xl text-white uppercase tracking-tight mb-4">
-            <span className="glow-orange">About</span>{" "}
+            <span className="glow-orange">{t.about.title}</span>{" "}
             <span className="text-cyan-400 glow-cyan">Oracle Futures</span>
           </h1>
           
           <div className="flex items-center justify-center gap-2 mb-6">
             <div className="h-px w-16 bg-gradient-to-r from-transparent via-orange-500 to-transparent" />
             <p className="text-cyan-400 text-sm uppercase tracking-widest mono-numeric">
-              Mission Control
+              {t.about.missionControl}
             </p>
             <div className="h-px w-16 bg-gradient-to-r from-transparent via-orange-500 to-transparent" />
           </div>
           
           <p className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Empowering traders with cutting-edge AI technology to navigate the volatile 
-            cryptocurrency futures markets with precision and confidence.
+            {t.about.description}
           </p>
         </motion.div>
       </section>
@@ -51,29 +53,25 @@ export function FuturisticAboutPage() {
             <div className="flex items-center gap-3 mb-6">
               <Target className="w-6 h-6 text-cyan-400" />
               <h2 className="text-2xl text-white uppercase tracking-wider glow-cyan">
-                Our Mission
+                {t.about.mission.title}
               </h2>
             </div>
             
             <div className="space-y-4 text-gray-400 leading-relaxed">
               <p>
-                Oracle Futures was engineered with a singular objective: to democratize access to 
-                institutional-grade trading intelligence that was once exclusive to hedge funds and 
-                professional trading firms.
+                {t.about.mission.p1}
               </p>
               <p>
-                By leveraging cutting-edge machine learning algorithms, real-time data processing, 
-                and advanced sentiment analysis, we provide retail traders with the analytical 
-                firepower needed to compete in the fast-paced cryptocurrency futures market.
+                {t.about.mission.p2}
               </p>
             </div>
 
             {/* Mission Stats */}
             <div className="grid grid-cols-3 gap-4 mt-8">
               {[
-                { value: "2019", label: "Established" },
-                { value: "50K+", label: "Active Users" },
-                { value: "24/7", label: "Support" }
+                { value: "2019", label: t.about.mission.established },
+                { value: "50K+", label: t.about.mission.users },
+                { value: "24/7", label: t.about.mission.support }
               ].map((stat, index) => (
                 <div
                   key={index}
@@ -102,12 +100,12 @@ export function FuturisticAboutPage() {
         >
           <h2 className="text-white uppercase tracking-[0.2em] glow-orange flex items-center gap-3 text-2xl">
             <Activity className="w-6 h-6" />
-            Core Operations
+            {t.about.operations.title}
           </h2>
           <div className="flex items-center gap-2 mt-2">
             <div className="h-px w-12 bg-gradient-to-r from-orange-500 to-transparent" />
             <p className="text-cyan-400 text-xs uppercase tracking-widest mono-numeric">
-              System Capabilities
+              {t.about.operations.subtitle}
             </p>
           </div>
         </motion.div>
@@ -116,29 +114,29 @@ export function FuturisticAboutPage() {
           {[
             {
               icon: ChartBar,
-              title: "Market Analysis",
-              description: "Continuous monitoring of cryptocurrency markets with analysis of price movements, volume patterns, technical indicators, and market sentiment.",
+              title: t.about.operations.market.title,
+              description: t.about.operations.market.description,
               color: "cyan",
               borderColor: "border-l-cyan-500"
             },
             {
               icon: Target,
-              title: "Signal Generation",
-              description: "Precision trading signals with entry points, profit targets, and stop-loss levels, each with AI confidence scoring.",
+              title: t.about.operations.signal.title,
+              description: t.about.operations.signal.description,
               color: "green",
               borderColor: "border-l-green-500"
             },
             {
               icon: Shield,
-              title: "Risk Management",
-              description: "Automated risk-reward calculations and position sizing recommendations to protect capital and optimize portfolio management.",
+              title: t.about.operations.risk.title,
+              description: t.about.operations.risk.description,
               color: "orange",
               borderColor: "border-l-orange-500"
             },
             {
               icon: Zap,
-              title: "Real-Time Updates",
-              description: "Instant notifications and live updates as market conditions change, ensuring you're always equipped with current intelligence.",
+              title: t.about.operations.realtime.title,
+              description: t.about.operations.realtime.description,
               color: "purple",
               borderColor: "border-l-purple-500"
             }
@@ -200,25 +198,25 @@ export function FuturisticAboutPage() {
             <div className="flex items-center gap-3 mb-8">
               <Code className="w-8 h-8 text-purple-400" />
               <h2 className="text-2xl text-white uppercase tracking-wider">
-                Technology Architecture
+                {t.about.tech.title}
               </h2>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
-                  title: "Machine Learning",
-                  description: "Advanced neural networks trained on extensive historical market data to recognize patterns and predict price movements.",
+                  title: t.about.tech.ml.title,
+                  description: t.about.tech.ml.description,
                   color: "cyan"
                 },
                 {
-                  title: "Data Processing",
-                  description: "Real-time data pipelines processing millions of data points from multiple exchanges for comprehensive coverage.",
+                  title: t.about.tech.data.title,
+                  description: t.about.tech.data.description,
                   color: "green"
                 },
                 {
-                  title: "Sentiment Analysis",
-                  description: "Natural language processing algorithms analyzing social media, news, and community sentiment for market psychology.",
+                  title: t.about.tech.sentiment.title,
+                  description: t.about.tech.sentiment.description,
                   color: "orange"
                 }
               ].map((tech, index) => (
@@ -258,12 +256,12 @@ export function FuturisticAboutPage() {
         >
           <h2 className="text-white uppercase tracking-[0.2em] glow-orange flex items-center gap-3 text-2xl">
             <Target className="w-6 h-6" />
-            Strategic Objectives
+            {t.about.objectives.title}
           </h2>
           <div className="flex items-center gap-2 mt-2">
             <div className="h-px w-12 bg-gradient-to-r from-orange-500 to-transparent" />
             <p className="text-cyan-400 text-xs uppercase tracking-widest mono-numeric">
-              Our Roadmap
+              {t.about.objectives.subtitle}
             </p>
           </div>
         </motion.div>
@@ -272,26 +270,26 @@ export function FuturisticAboutPage() {
           {[
             {
               number: "01",
-              title: "Accessibility",
-              description: "Make professional-grade trading tools accessible to everyone, regardless of experience level or capital.",
+              title: t.about.objectives.accessibility.title,
+              description: t.about.objectives.accessibility.description,
               color: "cyan"
             },
             {
               number: "02",
-              title: "Education",
-              description: "Educate users about market dynamics, risk management, and responsible trading practices.",
+              title: t.about.objectives.education.title,
+              description: t.about.objectives.education.description,
               color: "green"
             },
             {
               number: "03",
-              title: "Innovation",
-              description: "Continuously evolve AI models and expand features to stay ahead of market trends.",
+              title: t.about.objectives.innovation.title,
+              description: t.about.objectives.innovation.description,
               color: "orange"
             },
             {
               number: "04",
-              title: "Transparency",
-              description: "Maintain transparency in methodologies and performance metrics, building trust through honesty.",
+              title: t.about.objectives.transparency.title,
+              description: t.about.objectives.transparency.description,
               color: "purple"
             }
           ].map((objective, index) => (
@@ -347,17 +345,15 @@ export function FuturisticAboutPage() {
             </div>
             
             <h2 className="text-2xl md:text-3xl text-white uppercase tracking-wider glow-orange mb-4">
-              Built by Traders, for Traders
+              {t.about.team.title}
             </h2>
             
             <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Our team consists of experienced traders, data scientists, and software engineers 
-              who understand the challenges of navigating cryptocurrency markets. We've been in 
-              your position, and we're committed to building the tools we wished existed when we started.
+              {t.about.team.description}
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-              {["Traders", "Data Scientists", "Engineers", "Analysts"].map((role, index) => (
+              {t.about.team.roles.map((role, index) => (
                 <div
                   key={index}
                   className="p-4 bg-gray-900/30 border border-orange-500/20 clip-corner-tl"
@@ -381,21 +377,20 @@ export function FuturisticAboutPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-2xl md:text-3xl text-white uppercase tracking-wider mb-4">
-              <span className="glow-green">Ready to</span>{" "}
-              <span className="text-cyan-400 glow-cyan">Begin?</span>
+              <span className="glow-green">{t.about.cta.title1}</span>{" "}
+              <span className="text-cyan-400 glow-cyan">{t.about.cta.title2}</span>
             </h2>
             
             <p className="text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Join thousands of traders using Oracle Futures to enhance their strategies 
-              and make informed decisions in the crypto markets.
+              {t.about.cta.description}
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center">
               <button className="px-6 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white uppercase tracking-wider clip-corner-both border border-green-400/50 transition-all duration-300 mono-numeric">
-                View Live Signals
+                {t.about.cta.viewSignals}
               </button>
               <button className="px-6 py-3 bg-gray-900/50 hover:bg-gray-800/50 text-cyan-400 uppercase tracking-wider clip-corner-both border border-cyan-500/30 hover:border-cyan-500/50 transition-all duration-300 mono-numeric">
-                Learn More
+                {t.about.cta.learnMore}
               </button>
             </div>
           </motion.div>

@@ -2,6 +2,7 @@ import { TrendingUp, TrendingDown, Target, Zap, Activity } from "lucide-react";
 import { motion } from "motion/react";
 import { GlassPanel } from "./GlassPanel";
 import { Badge } from "./ui/badge";
+import { useLanguage } from "../i18n/LanguageContext";
 
 interface Signal {
   id: number;
@@ -68,6 +69,7 @@ const mockSignals: Signal[] = [
 ];
 
 export function HUDTradingSignals() {
+  const { t } = useLanguage();
   return (
     <div className="space-y-6">
       {/* Section Header */}
@@ -80,12 +82,12 @@ export function HUDTradingSignals() {
         <div>
           <h2 className="text-white uppercase tracking-[0.2em] glow-orange flex items-center gap-3">
             <Activity className="w-6 h-6" />
-            Active Signals
+            {t.tradingSignals.title}
           </h2>
           <div className="flex items-center gap-2 mt-2">
             <div className="h-px w-8 bg-gradient-to-r from-orange-500 to-transparent" />
             <p className="text-cyan-400 text-xs uppercase tracking-widest mono-numeric">
-              AI-Generated Trading Intel
+              {t.tradingSignals.subtitle}
             </p>
           </div>
         </div>
@@ -97,7 +99,7 @@ export function HUDTradingSignals() {
           </div>
           <span className="text-green-400 text-xs uppercase tracking-wider mono-numeric flex items-center gap-1">
             <Zap className="w-3 h-3" />
-            Live Feed
+            {t.tradingSignals.liveFeed}
           </span>
         </div>
       </motion.div>
@@ -171,13 +173,13 @@ export function HUDTradingSignals() {
                 <div className="p-4 grid grid-cols-2 gap-4">
                   {/* Entry */}
                   <div className="space-y-1">
-                    <div className="text-gray-500 text-xs uppercase tracking-wider">Entry</div>
+                    <div className="text-gray-500 text-xs uppercase tracking-wider">{t.tradingSignals.entry}</div>
                     <div className="text-white mono-numeric">{signal.entry}</div>
                   </div>
 
                   {/* Leverage */}
                   <div className="space-y-1">
-                    <div className="text-gray-500 text-xs uppercase tracking-wider">Leverage</div>
+                    <div className="text-gray-500 text-xs uppercase tracking-wider">{t.tradingSignals.leverage}</div>
                     <div className="text-orange-400 mono-numeric">{signal.leverage}</div>
                   </div>
 
@@ -185,7 +187,7 @@ export function HUDTradingSignals() {
                   <div className="space-y-1">
                     <div className="text-gray-500 text-xs uppercase tracking-wider flex items-center gap-1">
                       <Target className="w-3 h-3" />
-                      Target
+                      {t.tradingSignals.target}
                     </div>
                     <div className={`
                       mono-numeric
@@ -197,7 +199,7 @@ export function HUDTradingSignals() {
 
                   {/* Stop Loss */}
                   <div className="space-y-1">
-                    <div className="text-gray-500 text-xs uppercase tracking-wider">Stop Loss</div>
+                    <div className="text-gray-500 text-xs uppercase tracking-wider">{t.tradingSignals.stopLoss}</div>
                     <div className="text-gray-400 mono-numeric">{signal.stopLoss}</div>
                   </div>
                 </div>
@@ -210,7 +212,7 @@ export function HUDTradingSignals() {
                   {/* AI Confidence */}
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-1.5">
-                      <span className="text-gray-500 text-xs uppercase tracking-wider">AI Confidence</span>
+                      <span className="text-gray-500 text-xs uppercase tracking-wider">{t.tradingSignals.confidence}</span>
                       <span className="text-orange-400 text-xs mono-numeric">{signal.confidence}%</span>
                     </div>
                     <div className="relative h-1.5 bg-gray-900/50 rounded-full overflow-hidden">

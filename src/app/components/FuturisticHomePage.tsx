@@ -5,8 +5,11 @@ import { HUDAnalysisForm } from "./HUDAnalysisForm";
 import { HUDTradingSignals } from "./HUDTradingSignals";
 import { DataVisualization } from "./DataVisualization";
 import { LiveStats } from "./LiveStats";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export function FuturisticHomePage() {
+  const { t } = useLanguage();
+
   return (
     <div className="space-y-16 pb-20">
       {/* Hero Section - Command Center Style */}
@@ -29,7 +32,7 @@ export function FuturisticHomePage() {
               >
                 <Zap className="w-4 h-4 text-orange-400" />
                 <span className="text-orange-400 text-sm uppercase tracking-widest mono-numeric">
-                  Next-Gen AI Trading System
+                  {t.hero.badge}
                 </span>
               </motion.div>
 
@@ -40,9 +43,9 @@ export function FuturisticHomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <span className="glow-orange">Master</span>
+                <span className="glow-orange">{t.hero.title1}</span>
                 <br />
-                <span className="text-cyan-400 glow-cyan">Crypto Futures</span>
+                <span className="text-cyan-400 glow-cyan">{t.hero.title2}</span>
               </motion.h1>
 
               {/* Subtitle */}
@@ -52,8 +55,7 @@ export function FuturisticHomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                Oracle Futures harnesses advanced artificial intelligence to deliver real-time trading signals,
-                precision market analysis, and data-driven insights for cryptocurrency futures markets.
+                {t.hero.subtitle}
               </motion.p>
 
               {/* Stats Grid */}
@@ -64,9 +66,9 @@ export function FuturisticHomePage() {
                 transition={{ delay: 0.5 }}
               >
                 {[
-                  { value: "95%", label: "Accuracy Rate", color: "green" },
-                  { value: "24/7", label: "Live Monitoring", color: "cyan" },
-                  { value: "< 1s", label: "Signal Speed", color: "orange" }
+                  { value: "95%", label: t.hero.stats.accuracy, color: "green" },
+                  { value: "24/7", label: t.hero.stats.monitoring, color: "cyan" },
+                  { value: "< 1s", label: t.hero.stats.speed, color: "orange" }
                 ].map((stat, index) => (
                   <div
                     key={index}
@@ -109,7 +111,7 @@ export function FuturisticHomePage() {
       >
         <div className="mb-4 flex items-center gap-2">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-orange-500/30 to-transparent" />
-          <span className="text-gray-500 text-xs uppercase tracking-widest mono-numeric">Live Market Feed</span>
+          <span className="text-gray-500 text-xs uppercase tracking-widest mono-numeric">{t.liveStats.marketFeed}</span>
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-orange-500/30 to-transparent" />
         </div>
         <LiveStats />
@@ -135,12 +137,12 @@ export function FuturisticHomePage() {
         >
           <h2 className="text-white uppercase tracking-[0.2em] glow-orange flex items-center gap-3 text-2xl">
             <Database className="w-6 h-6" />
-            System Capabilities
+            {t.features.title}
           </h2>
           <div className="flex items-center gap-2 mt-2">
             <div className="h-px w-12 bg-gradient-to-r from-orange-500 to-transparent" />
             <p className="text-cyan-400 text-xs uppercase tracking-widest mono-numeric">
-              Advanced Trading Intelligence
+              {t.features.subtitle}
             </p>
           </div>
         </motion.div>
@@ -149,24 +151,24 @@ export function FuturisticHomePage() {
           {[
             {
               icon: Brain,
-              title: "Neural Analysis",
-              description: "Deep learning algorithms process thousands of data points, analyzing technical indicators, sentiment, and historical patterns.",
+              title: t.features.neural.title,
+              description: t.features.neural.description,
               color: "cyan",
-              stats: "10K+ Data Points/sec"
+              stats: t.features.neural.stats
             },
             {
               icon: Shield,
-              title: "Risk Protocol",
-              description: "Automated risk management with calculated stop-loss levels, position sizing, and risk-reward optimization.",
+              title: t.features.risk.title,
+              description: t.features.risk.description,
               color: "green",
-              stats: "Multi-Layer Protection"
+              stats: t.features.risk.stats
             },
             {
               icon: Zap,
-              title: "Real-Time Intel",
-              description: "Instant market updates and signal generation with sub-second latency for time-critical opportunities.",
+              title: t.features.realtime.title,
+              description: t.features.realtime.description,
               color: "orange",
-              stats: "< 100ms Latency"
+              stats: t.features.realtime.stats
             }
           ].map((feature, index) => {
             const Icon = feature.icon;
@@ -233,12 +235,12 @@ export function FuturisticHomePage() {
         >
           <h2 className="text-white uppercase tracking-[0.2em] glow-orange flex items-center gap-3 text-2xl">
             <Cpu className="w-6 h-6" />
-            Technology Stack
+            {t.technology.title}
           </h2>
           <div className="flex items-center gap-2 mt-2">
             <div className="h-px w-12 bg-gradient-to-r from-orange-500 to-transparent" />
             <p className="text-cyan-400 text-xs uppercase tracking-widest mono-numeric">
-              Powered by Advanced AI
+              {t.technology.subtitle}
             </p>
           </div>
         </motion.div>
@@ -256,7 +258,7 @@ export function FuturisticHomePage() {
             </motion.div>
             <div className="text-center mt-4">
               <p className="text-gray-500 text-xs uppercase tracking-wider mono-numeric">
-                Real-Time Data Processing Network
+                {t.technology.visualization}
               </p>
             </div>
           </div>
@@ -264,22 +266,22 @@ export function FuturisticHomePage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Machine Learning",
-                description: "Neural networks trained on years of historical data",
+                title: t.technology.ml.title,
+                description: t.technology.ml.description,
                 icon: Brain,
-                metrics: ["Pattern Recognition", "Predictive Analysis", "Adaptive Learning"]
+                metrics: t.technology.ml.metrics
               },
               {
-                title: "Data Processing",
-                description: "Real-time pipeline across multiple exchanges",
+                title: t.technology.data.title,
+                description: t.technology.data.description,
                 icon: Database,
-                metrics: ["Multi-Exchange", "High Frequency", "Low Latency"]
+                metrics: t.technology.data.metrics
               },
               {
-                title: "Network Intelligence",
-                description: "Sentiment analysis from social and news sources",
+                title: t.technology.network.title,
+                description: t.technology.network.description,
                 icon: Network,
-                metrics: ["Social Sentiment", "News Analysis", "Market Psychology"]
+                metrics: t.technology.network.metrics
               }
             ].map((tech, index) => {
               const Icon = tech.icon;
@@ -332,18 +334,18 @@ export function FuturisticHomePage() {
             >
               <TrendingUp className="w-12 h-12 text-green-400 mx-auto mb-4" />
               <h3 className="text-2xl text-white uppercase tracking-wider glow-green mb-3">
-                Proven Performance
+                {t.performance.title}
               </h3>
               <p className="text-gray-400 mb-6">
-                Our AI-driven signals have consistently outperformed market averages across multiple timeframes and market conditions.
+                {t.performance.description}
               </p>
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
-                  { label: "Win Rate", value: "73.2%" },
-                  { label: "Avg ROI", value: "+127%" },
-                  { label: "Signals/Day", value: "48" },
-                  { label: "Markets", value: "200+" }
+                  { label: t.performance.winRate, value: "73.2%" },
+                  { label: t.performance.avgRoi, value: "+127%" },
+                  { label: t.performance.signalsPerDay, value: "48" },
+                  { label: t.performance.markets, value: "200+" }
                 ].map((metric, index) => (
                   <div
                     key={index}
@@ -369,12 +371,9 @@ export function FuturisticHomePage() {
           <div className="flex gap-4">
             <Shield className="w-5 h-5 text-yellow-500 shrink-0 mt-0.5" />
             <div>
-              <h4 className="text-yellow-500 uppercase tracking-wider mb-2">Critical Warning</h4>
+              <h4 className="text-yellow-500 uppercase tracking-wider mb-2">{t.warning.title}</h4>
               <p className="text-yellow-400/80 text-sm leading-relaxed mono-numeric">
-                Cryptocurrency futures trading involves substantial risk of loss. Oracle Futures provides AI-generated analysis 
-                for educational and informational purposes only. This is not financial advice. Always conduct your own research 
-                and consider consulting with a qualified financial advisor before making any trading decisions. Past performance 
-                does not guarantee future results.
+                {t.warning.text}
               </p>
             </div>
           </div>

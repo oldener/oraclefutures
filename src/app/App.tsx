@@ -1,15 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AuroraBackground } from "./components/AuroraBackground";
 import { FuturisticHeader } from "./components/FuturisticHeader";
 import { FuturisticFooter } from "./components/FuturisticFooter";
 import { FuturisticHomePage } from "./components/FuturisticHomePage";
 import { FuturisticAboutPage } from "./components/FuturisticAboutPage";
+import { LanguageProvider } from "./i18n/LanguageContext";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<"home" | "about" | "signals">("home");
 
+  const handlePageChange = (page: "home" | "about" | "signals") => {
+    setCurrentPage(page);
+    // Scroll до початку сторінки
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    // Scroll до верху при зміні сторінки
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
+
   return (
-    <>
+    <LanguageProvider>
       {/* Aurora Background */}
       <AuroraBackground />
       
@@ -18,7 +30,7 @@ export default function App() {
         {/* Header */}
         <FuturisticHeader 
           currentPage={currentPage} 
-          onNavigate={(page) => setCurrentPage(page as "home" | "about" | "signals")} 
+          onNavigate={handlePageChange} 
         />
         
         {/* Main Content */}
@@ -31,6 +43,6 @@ export default function App() {
         {/* Footer */}
         <FuturisticFooter />
       </div>
-    </>
+    </LanguageProvider>
   );
 }

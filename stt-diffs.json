@@ -1,0 +1,78 @@
+[
+  {
+    "path": "ATTRIBUTIONS.md",
+    "type": "added"
+  },
+  {
+    "path": "DESIGN_SYSTEM.md",
+    "type": "added"
+  },
+  {
+    "path": "guidelines/Guidelines.md",
+    "type": "added"
+  },
+  {
+    "path": "index.html",
+    "type": "added"
+  },
+  {
+    "path": "package.json",
+    "type": "added"
+  },
+  {
+    "path": "postcss.config.mjs",
+    "type": "added"
+  },
+  {
+    "path": "README.md",
+    "type": "added"
+  },
+  {
+    "path": "app/App.tsx",
+    "type": "modified"
+  },
+  {
+    "path": "app/components/FuturisticAboutPage.tsx",
+    "type": "modified"
+  },
+  {
+    "path": "app/components/FuturisticFooter.tsx",
+    "type": "modified"
+  },
+  {
+    "path": "app/components/FuturisticHeader.tsx",
+    "type": "modified"
+  },
+  {
+    "path": "app/components/FuturisticHomePage.tsx",
+    "type": "modified"
+  },
+  {
+    "path": "app/components/Header.tsx",
+    "type": "modified"
+  },
+  {
+    "path": "app/components/HUDAnalysisForm.tsx",
+    "type": "modified"
+  },
+  {
+    "path": "app/components/HUDTradingSignals.tsx",
+    "type": "modified"
+  },
+  {
+    "path": "app/i18n/LanguageContext.tsx",
+    "type": "added"
+  },
+  {
+    "path": "app/i18n/translations.ts",
+    "type": "added"
+  },
+  {
+    "path": "main.tsx",
+    "type": "modified"
+  },
+  {
+    "path": "vite.config.ts",
+    "type": "added"
+  }
+]

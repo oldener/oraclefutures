@@ -1,20 +1,31 @@
-import { Brain, Menu, X, Activity, Zap } from "lucide-react";
-import { motion } from "motion/react";
+import { Brain, Menu, X, Activity, Zap, Globe, ChevronDown, LogIn } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
+import { useLanguage } from "../i18n/LanguageContext";
+import { Language } from "../i18n/translations";
 
 interface HeaderProps {
-  currentPage: string;
-  onNavigate: (page: string) => void;
+  currentPage: "home" | "about" | "signals";
+  onNavigate: (page: "home" | "about" | "signals") => void;
 }
 
 export function FuturisticHeader({ currentPage, onNavigate }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
-  const navItems = [
-    { id: "home", label: "HOME", icon: Activity },
-    { id: "about", label: "ABOUT", icon: Brain },
-    { id: "signals", label: "SIGNALS", icon: Zap },
+  const navItems: { id: "home" | "about" | "signals"; label: string; icon: any }[] = [
+    { id: "home", label: t.header.hub, icon: Activity },
+    { id: "about", label: t.header.intel, icon: Brain },
+    { id: "signals", label: t.header.signals, icon: Zap },
   ];
+
+  const languages = [
+    { code: "uk" as Language, name: "Українська", flag: "🇺🇦" },
+    { code: "en" as Language, name: "English", flag: "🇬🇧" }
+  ];
+
+  const currentLanguage = languages.find(lang => lang.code === language);
 
   return (
     <motion.header 
@@ -107,13 +118,62 @@ export function FuturisticHeader({ currentPage, onNavigate }: HeaderProps) {
             })}
           </nav>
 
-          {/* Status Indicator */}
-          <div className="hidden md:flex items-center gap-2 px-4 py-1.5 bg-green-500/10 border border-green-500/30 clip-corner-tl">
-            <div className="relative w-2 h-2">
-              <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-75" />
-              <div className="relative bg-green-500 rounded-full w-2 h-2" />
+          {/* Right Side Actions */}
+          <div className="hidden md:flex items-center gap-3">
+            {/* Language Selector */}
+            <div className="relative">
+              <motion.button
+                className="flex items-center gap-2 px-4 py-2 bg-gray-900/50 border border-cyan-500/30 hover:border-cyan-500/50 clip-corner-tl transition-all"
+                onClick={() => setLanguageMenuOpen(!languageMenuOpen)}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Globe className="w-4 h-4 text-cyan-400" />
+                <span className="text-cyan-400 text-sm mono-numeric">{currentLanguage?.flag}</span>
+                <ChevronDown className={`w-3 h-3 text-cyan-400 transition-transform ${languageMenuOpen ? "rotate-180" : ""}`} />
+              </motion.button>
+
+              {/* Language Dropdown */}
+              <AnimatePresence>
+                {languageMenuOpen && (
+                  <motion.div
+                    className="absolute top-full right-0 mt-2 w-48 bg-[#0a0a14]/95 backdrop-blur-xl border border-cyan-500/30 clip-corner-all overflow-hidden"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {languages.map((lang) => (
+                      <button
+                        key={lang.code}
+                        className={`
+                          w-full px-4 py-3 flex items-center gap-3 text-left
+                          ${language === lang.code ? "bg-cyan-500/20 text-cyan-400" : "text-gray-400 hover:bg-cyan-500/10 hover:text-cyan-400"}
+                          transition-all border-b border-cyan-500/10 last:border-b-0
+                        `}
+                        onClick={() => {
+                          setLanguage(lang.code);
+                          setLanguageMenuOpen(false);
+                        }}
+                      >
+                        <span className="text-xl">{lang.flag}</span>
+                        <span className="text-sm mono-numeric">{lang.name}</span>
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-            <span className="text-green-400 text-xs uppercase tracking-wider mono-numeric">LIVE</span>
+
+            {/* Login / Register Button */}
+            <motion.button
+              className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 border border-orange-400/50 clip-corner-both transition-all text-white uppercase tracking-wider text-sm mono-numeric"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <LogIn className="w-4 h-4" />
+              <span>{t.header.login} / {t.header.register}</span>
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -134,6 +194,7 @@ export function FuturisticHeader({ currentPage, onNavigate }: HeaderProps) {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
           >
+            {/* Navigation Items */}
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = currentPage === item.id;
@@ -157,6 +218,40 @@ export function FuturisticHeader({ currentPage, onNavigate }: HeaderProps) {
                 </button>
               );
             })}
+
+            {/* Language Selector Mobile */}
+            <div className="px-4 py-2">
+              <div className="text-gray-500 text-xs uppercase tracking-wider mb-2 flex items-center gap-2">
+                <Globe className="w-3 h-3" />
+                Language
+              </div>
+              <div className="space-y-1">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    className={`
+                      w-full px-3 py-2 flex items-center gap-2 text-left clip-corner-tl
+                      ${language === lang.code ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/30" : "bg-gray-900/30 text-gray-400 border border-gray-700/30"}
+                      hover:bg-cyan-500/10 hover:text-cyan-400 transition-all text-sm
+                    `}
+                    onClick={() => {
+                      setLanguage(lang.code);
+                    }}
+                  >
+                    <span className="text-base">{lang.flag}</span>
+                    <span className="mono-numeric">{lang.name}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Login Button Mobile */}
+            <div className="px-4 pt-2">
+              <button className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-orange-600 to-orange-500 border border-orange-400/50 clip-corner-both text-white uppercase tracking-wider text-sm mono-numeric">
+                <LogIn className="w-4 h-4" />
+                <span>{t.header.login} / {t.header.register}</span>
+              </button>
+            </div>
           </motion.div>
         )}
       </div>
