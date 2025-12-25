@@ -209,7 +209,7 @@ export const translations = {
       copyright: "Oracle Futures",
       allRightsReserved: "Всі права захищені",
       build: "Збірка",
-      status: "Всі Системи ФункціонУють"
+      status: "Всі Системи Функціонують"
     }
   },
   en: {

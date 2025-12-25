@@ -7,9 +7,10 @@ import { Language } from "../i18n/translations";
 interface HeaderProps {
   currentPage: "home" | "about" | "signals";
   onNavigate: (page: "home" | "about" | "signals") => void;
+  onAuthClick: () => void;
 }
 
-export function FuturisticHeader({ currentPage, onNavigate }: HeaderProps) {
+export function FuturisticHeader({ currentPage, onNavigate, onAuthClick }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
@@ -167,6 +168,7 @@ export function FuturisticHeader({ currentPage, onNavigate }: HeaderProps) {
 
             {/* Login / Register Button */}
             <motion.button
+              onClick={onAuthClick}
               className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 border border-orange-400/50 clip-corner-both transition-all text-white uppercase tracking-wider text-sm mono-numeric"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -247,7 +249,13 @@ export function FuturisticHeader({ currentPage, onNavigate }: HeaderProps) {
 
             {/* Login Button Mobile */}
             <div className="px-4 pt-2">
-              <button className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-orange-600 to-orange-500 border border-orange-400/50 clip-corner-both text-white uppercase tracking-wider text-sm mono-numeric">
+              <button
+                onClick={() => {
+                  onAuthClick();
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-orange-600 to-orange-500 border border-orange-400/50 clip-corner-both text-white uppercase tracking-wider text-sm mono-numeric"
+              >
                 <LogIn className="w-4 h-4" />
                 <span>{t.header.login} / {t.header.register}</span>
               </button>

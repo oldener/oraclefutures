@@ -5,9 +5,11 @@ import { FuturisticFooter } from "./components/FuturisticFooter";
 import { FuturisticHomePage } from "./components/FuturisticHomePage";
 import { FuturisticAboutPage } from "./components/FuturisticAboutPage";
 import { LanguageProvider } from "./i18n/LanguageContext";
+import { AuthModal } from "./components/AuthModal";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<"home" | "about" | "signals">("home");
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
   const handlePageChange = (page: "home" | "about" | "signals") => {
     setCurrentPage(page);
@@ -20,6 +22,10 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
+  const handleAuthClick = () => {
+    setIsAuthModalOpen(true);
+  };
+
   return (
     <LanguageProvider>
       {/* Aurora Background */}
@@ -30,7 +36,8 @@ export default function App() {
         {/* Header */}
         <FuturisticHeader 
           currentPage={currentPage} 
-          onNavigate={handlePageChange} 
+          onNavigate={handlePageChange}
+          onAuthClick={handleAuthClick}
         />
         
         {/* Main Content */}
@@ -43,6 +50,9 @@ export default function App() {
         {/* Footer */}
         <FuturisticFooter />
       </div>
+
+      {/* Authentication Modal */}
+      <AuthModal open={isAuthModalOpen} onOpenChange={setIsAuthModalOpen} />
     </LanguageProvider>
   );
 }
