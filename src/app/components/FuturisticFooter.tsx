@@ -131,7 +131,7 @@ export function FuturisticFooter() {
           >
             <span className="mono-numeric">© {currentYear} {t.footer.copyright}</span>
             <div className="w-px h-3 bg-gray-700" />
-            <span className="mono-numeric">{t.footer.build} v0.0.2</span>
+            <span className="mono-numeric">{t.footer.build} v0.1.1</span>
             <div className="w-px h-3 bg-gray-700" />
             <div className="flex items-center gap-1.5">
               <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />

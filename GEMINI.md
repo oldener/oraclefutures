@@ -1,17 +1,9 @@
-Тепер потрібно синхронізувати AuthModal з системою перекладу. Зроби наступне:
+Знайди в усьому проєкті (особливо в папці src/) рядки, де використовується http://localhost:5000.
 
-Translations: Переконайся, що у файлі src/app/i18n/translations.ts у об'єктах en та ua є секція auth з усіма полями (title, username, email, password, confirm, submit).
+Заміни їх на ${import.meta.env.VITE_API_URL || 'http://localhost:5000'}.
 
-AuthModal Hook: Відкрий AuthModal.jsx (або .tsx).
+Переконайся, що в файлі src/app/components/AuthModal.jsx (або подібних) запити fetch тепер виглядають так: fetch(\${import.meta.env.VITE_API_URL}/api/auth/${endpoint}`, ...)`
 
-Видали будь-який захардкоджений український або англійський текст.
+Перевір файл vite.config.ts або .env — якщо там є proxy, переконайся, що він не заважає.
 
-Імпортуй хук: import { useLanguage } from '../i18n/LanguageContext'; (перевір правильність шляху).
-
-Всередині компонента отримай поточні переклади: const { t } = useLanguage();.
-
-Заміни всі тексти в інпутах та заголовках на змінні з t.auth, наприклад: {t.auth.title}, {t.auth.username}, {t.auth.submit}.
-
-Validation Messages: Також заміни повідомлення про помилки (наприклад, 'Password too short') на переклади з контексту t.auth.errorPasswordShort тощо.
-
-Після цього при зміні мови в хедері модальне вікно має змінюватися миттєво разом з усім сайтом.
+Після виправлення виведи список файлів, де було знайдено localhost.

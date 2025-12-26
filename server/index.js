@@ -9,7 +9,7 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors()); // Enable Cross-Origin Resource Sharing
+app.use(cors({ origin: process.env.CORS_ORIGIN || '*' })); // Enable Cross-Origin Resource Sharing
 app.use(express.json()); // Body parser for JSON format
 
 const swaggerUi = require('swagger-ui-express');
@@ -26,7 +26,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: 'http://localhost:5000/api/auth',
+        url: `${process.env.API_URL || 'http://localhost:5000'}/api/auth`,
       },
     ],
   },
