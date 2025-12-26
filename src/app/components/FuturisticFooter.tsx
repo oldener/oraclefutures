@@ -39,7 +39,7 @@ export function FuturisticFooter() {
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              {t.footer.description}
+              {t?.footer?.description || ''}
             </p>
           </motion.div>
 

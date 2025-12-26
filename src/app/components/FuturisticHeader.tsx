@@ -16,9 +16,9 @@ export function FuturisticHeader({ currentPage, onNavigate, onAuthClick }: Heade
   const { language, setLanguage, t } = useLanguage();
 
   const navItems: { id: "home" | "about" | "signals"; label: string; icon: any }[] = [
-    { id: "home", label: t.header.hub, icon: Activity },
-    { id: "about", label: t.header.intel, icon: Brain },
-    { id: "signals", label: t.header.signals, icon: Zap },
+    { id: "home", label: t?.header?.hub, icon: Activity },
+    { id: "about", label: t?.header?.intel, icon: Brain },
+    { id: "signals", label: t?.header?.signals, icon: Zap },
   ];
 
   const languages = [
@@ -174,7 +174,7 @@ export function FuturisticHeader({ currentPage, onNavigate, onAuthClick }: Heade
               whileTap={{ scale: 0.98 }}
             >
               <LogIn className="w-4 h-4" />
-              <span>{t.header.login} / {t.header.register}</span>
+              <span>{t?.header?.login} / {t?.header?.register}</span>
             </motion.button>
           </div>
 
@@ -257,7 +257,7 @@ export function FuturisticHeader({ currentPage, onNavigate, onAuthClick }: Heade
                 className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-orange-600 to-orange-500 border border-orange-400/50 clip-corner-both text-white uppercase tracking-wider text-sm mono-numeric"
               >
                 <LogIn className="w-4 h-4" />
-                <span>{t.header.login} / {t.header.register}</span>
+                <span>{t?.header?.login} / {t?.header?.register}</span>
               </button>
             </div>
           </motion.div>

@@ -9,6 +9,24 @@ export const translations = {
       login: "Вхід",
       register: "Реєстрація",
     },
+    auth: { 
+      title: 'Створити акаунт', 
+      username: 'Ім\'я користувача', 
+      email: 'Електронна пошта', 
+      password: 'Пароль', 
+      confirm: 'Підтвердити пароль', 
+      submit: 'Зареєструватися',
+      loginAction: 'Увійти',
+      passwordMismatch: "Паролі не співпадають",
+      welcomeBack: "З поверненням до Oracle Futures.",
+      joinNetwork: "Приєднуйтесь до мережі Oracle Futures.",
+      loginSuccess: "Вхід успішний!",
+      registerSuccess: "Реєстрація успішна!",
+      loadingLogin: "Вхід...",
+      loadingRegister: "Реєстрація...",
+      promptRegister: "Немає акаунта? Зареєструватися",
+      promptLogin: "Вже є акаунт? Увійти"
+    },
     // Hero Section
     hero: {
       badge: "AI Торгова Система Нового Покоління",
@@ -222,6 +240,24 @@ export const translations = {
       login: "Login",
       register: "Register",
     },
+    auth: {
+      title: 'Create Account',
+      username: 'Username',
+      email: 'Email',
+      password: 'Password',
+      confirm: 'Confirm Password',
+      submit: 'Register',
+      loginAction: 'Login',
+      passwordMismatch: "Passwords do not match",
+      welcomeBack: "Welcome back to Oracle Futures.",
+      joinNetwork: "Join the Oracle Futures network.",
+      loginSuccess: "Login successful!",
+      registerSuccess: "Registration successful!",
+      loadingLogin: "Logging in...",
+      loadingRegister: "Registering...",
+      promptRegister: "Don't have an account? Register",
+      promptLogin: "Already have an account? Login"
+    },
     // Hero Section
     hero: {
       badge: "Next-Gen AI Trading System",
@@ -234,7 +270,196 @@ export const translations = {
         speed: "Signal Speed"
       }
     },
-    // ... (en translations truncated for brevity)
+    // Live Stats
+    liveStats: {
+      title: "Live Market Feed",
+      marketFeed: "Live Market Feed"
+    },
+    // Analysis Form
+    analysisForm: {
+      title: "Request AI Analysis",
+      subtitle: "Instant Market Intelligence",
+      placeholder: "Enter a coin symbol (e.g., BTC, ETH, SOL)",
+      button: "Initiate Analysis",
+      analyzing: "Analyzing...",
+      quickAccess: "Quick Access",
+      systemReady: "AI System Ready"
+    },
+    // Trading Signals
+    tradingSignals: {
+      title: "Active Signals",
+      subtitle: "AI-Generated Trading Intelligence",
+      liveFeed: "Live Feed",
+      long: "LONG",
+      short: "SHORT",
+      entry: "Entry",
+      leverage: "Leverage",
+      target: "Target",
+      stopLoss: "Stop-Loss",
+      confidence: "AI Confidence",
+      pnl: "P&L"
+    },
+    // Features
+    features: {
+      title: "System Capabilities",
+      subtitle: "Advanced Trading Intelligence",
+      neural: {
+        title: "Neural Analysis",
+        description: "Deep learning algorithms process thousands of data points, analyzing technical indicators, sentiment, and historical patterns.",
+        stats: "10K+ Data Points/sec"
+      },
+      risk: {
+        title: "Risk Protocol",
+        description: "Automated risk management with calculated stop-loss levels, position sizing, and risk-reward ratio optimization.",
+        stats: "Multi-Layered Protection"
+      },
+      realtime: {
+        title: "Real-Time Intel",
+        description: "Instantaneous market updates and signal generation with sub-second latency for time-critical opportunities.",
+        stats: "< 100ms Latency"
+      }
+    },
+    // Technology
+    technology: {
+      title: "Technology Stack",
+      subtitle: "Powered by Cutting-Edge AI",
+      visualization: "Real-Time Data Processing Network",
+      ml: {
+        title: "Machine Learning",
+        description: "Neural networks trained on years of historical market data",
+        metrics: ["Pattern Recognition", "Predictive Analysis", "Adaptive Learning"]
+      },
+      data: {
+        title: "Data Processing",
+        description: "Real-time pipeline across multiple exchanges",
+        metrics: ["Multi-Exchange", "High Frequency", "Low Latency"]
+      },
+      network: {
+        title: "Network Intelligence",
+        description: "Sentiment analysis from social and news sources",
+        metrics: ["Social Sentiment", "News Analysis", "Market Psychology"]
+      }
+    },
+    // Performance
+    performance: {
+      title: "Proven Performance",
+      description: "Our AI-driven signals consistently outperform market averages across various timeframes and market conditions.",
+      winRate: "Win Rate",
+      avgRoi: "Average ROI",
+      signalsPerDay: "Signals/Day",
+      markets: "Markets"
+    },
+    // Warning
+    warning: {
+      title: "Critical Warning",
+      text: "Trading cryptocurrency futures involves a significant risk of loss. Oracle Futures provides AI-driven analysis for educational and informational purposes only. It is not financial advice. Always conduct your own research and consider consulting a qualified financial advisor before making any trading decisions. Past performance is not indicative of future results."
+    },
+    // About Page
+    about: {
+      title: "About",
+      subtitle: "Mission Control",
+      missionControl: "Mission Control",
+      description: "Empowering traders with cutting-edge AI technology to navigate the volatile cryptocurrency futures markets with precision and confidence.",
+      mission: {
+        title: "Our Mission",
+        p1: "Oracle Futures was founded with a single purpose: to democratize access to institutional-grade trading intelligence, once exclusive to hedge funds and professional trading firms.",
+        p2: "By harnessing advanced machine learning algorithms, real-time data processing, and sophisticated sentiment analysis, we provide retail traders with the analytical power needed to compete in the fast-paced crypto futures market.",
+        established: "Established",
+        users: "Active Users",
+        support: "Support"
+      },
+      operations: {
+        title: "Core Operations",
+        subtitle: "System Capabilities",
+        market: {
+          title: "Market Analysis",
+          description: "Continuous monitoring of cryptocurrency markets, analyzing price action, volume patterns, technical indicators, and market sentiment."
+        },
+        signal: {
+          title: "Signal Generation",
+          description: "Precise trade signals with entry points, profit targets, and stop-loss levels, each with an AI-generated confidence score."
+        },
+        risk: {
+          title: "Risk Management",
+          description: "Automated risk-reward ratio calculations and position sizing recommendations to protect capital and optimize portfolio management."
+        },
+        realtime: {
+          title: "Real-Time Updates",
+          description: "Instant notifications and real-time updates as market conditions change, ensuring you always have the latest intelligence."
+        }
+      },
+      tech: {
+        title: "Technology Architecture",
+        ml: {
+          title: "Machine Learning",
+          description: "Advanced neural networks trained on vast amounts of historical market data to recognize patterns and predict price movements."
+        },
+        data: {
+          title: "Data Processing",
+          description: "Real-time data pipelines processing millions of data points from multiple exchanges for comprehensive coverage."
+        },
+        sentiment: {
+          title: "Sentiment Analysis",
+          description: "Natural language processing algorithms analyzing social media, news, and community sentiment to understand market psychology."
+        }
+      },
+      objectives: {
+        title: "Strategic Objectives",
+        subtitle: "Our Roadmap",
+        accessibility: {
+          title: "Accessibility",
+          description: "Making professional-grade trading tools available to everyone, regardless of experience level or capital."
+        },
+        education: {
+          title: "Education",
+          description: "To educate users about market dynamics, risk management, and responsible trading practices."
+        },
+        innovation: {
+          title: "Innovation",
+          description: "Continuously evolving our AI models and expanding features to stay ahead of market trends."
+        },
+        transparency: {
+          title: "Transparency",
+          description: "To maintain transparency in our methodologies and performance metrics, building trust through integrity."
+        }
+      },
+      team: {
+        title: "Built by Traders, for Traders",
+        description: "Our team is composed of veteran traders, data scientists, and software engineers who understand the challenges of navigating the crypto markets. We've been in your shoes, and we're dedicated to building the tools we wish we had.",
+        roles: ["Traders", "Data Scientists", "Engineers", "Analysts"]
+      },
+      cta: {
+        title1: "Ready to",
+        title2: "Get Started?",
+        description: "Join thousands of traders who are using Oracle Futures to enhance their strategies and make informed decisions in the crypto markets.",
+        viewSignals: "View Live Signals",
+        learnMore: "Learn More"
+      }
+    },
+    // Footer
+    footer: {
+      description: "A next-generation AI-powered analytics platform for cryptocurrency futures trading.",
+      systemAccess: "System Access",
+      legal: "Legal",
+      links: {
+        documentation: "Documentation",
+        apiStatus: "API Status",
+        community: "Community",
+        support: "Support",
+        terms: "Terms of Service",
+        privacy: "Privacy Policy",
+        risk: "Risk Disclosure",
+        compliance: "Compliance"
+      },
+      warning: {
+        title: "Warning:",
+        text: "Trading cryptocurrencies involves significant risk. This platform provides AI analysis for educational purposes only. Not financial advice. Trade at your own risk."
+      },
+      copyright: "Oracle Futures",
+      allRightsReserved: "All Rights Reserved",
+      build: "Build",
+      status: "All Systems Operational"
+    }
   }
 } as const;
 

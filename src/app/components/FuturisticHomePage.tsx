@@ -111,7 +111,7 @@ export function FuturisticHomePage() {
       >
         <div className="mb-4 flex items-center gap-2">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-orange-500/30 to-transparent" />
-          <span className="text-gray-500 text-xs uppercase tracking-widest mono-numeric">{t.liveStats.marketFeed}</span>
+          <span className="text-gray-500 text-xs uppercase tracking-widest mono-numeric">{t?.liveStats?.marketFeed || ''}</span>
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-orange-500/30 to-transparent" />
         </div>
         <LiveStats />
