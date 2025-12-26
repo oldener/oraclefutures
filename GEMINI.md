@@ -1,9 +1,13 @@
-Знайди в усьому проєкті (особливо в папці src/) рядки, де використовується http://localhost:5000.
+У файлі src/app/components/AuthModal.tsx заміни рядок з fetch на цей (БЕЗ localhost):
 
-Заміни їх на ${import.meta.env.VITE_API_URL || 'http://localhost:5000'}.
+const response = await fetch(\${import.meta.env.VITE_API_URL}/api/auth/${endpoint}`, {`
 
-Переконайся, що в файлі src/app/components/AuthModal.jsx (або подібних) запити fetch тепер виглядають так: fetch(\${import.meta.env.VITE_API_URL}/api/auth/${endpoint}`, ...)`
+Після цього:
 
-Перевір файл vite.config.ts або .env — якщо там є proxy, переконайся, що він не заважає.
+Виконай git add .
 
-Після виправлення виведи список файлів, де було знайдено localhost.
+Виконай git commit -m "fix: total removal of localhost from build"
+
+Виконай git push
+
+Скажи мені, коли закінчиш.
